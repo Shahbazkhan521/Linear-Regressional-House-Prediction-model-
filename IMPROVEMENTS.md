@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-This document details all the weaknesses identified in the original machine learning model and the improvements made to achieve near 100% accuracy.
+This document details all the weaknesses identified in the original machine learning model and the improvements made to achieve over 90% accuracy with proper validation and best practices.
 
 ---
 
@@ -300,7 +300,7 @@ jupyter>=1.0.0
 - ❌ No feature engineering
 - ❌ No outlier handling
 - ❌ Missing dataset
-- ❌ ~92% accuracy (incorrectly calculated)
+- ❌ Accuracy metric was INVALID (due to scaling bug)
 
 ### After
 - ✅ Correct scaling (same scale for train/test)
@@ -311,7 +311,7 @@ jupyter>=1.0.0
 - ✅ 3 engineered features
 - ✅ IQR outlier detection
 - ✅ Dataset included
-- ✅ **92.49% accuracy (correctly calculated)**
+- ✅ **92.49% accuracy (PROPERLY VALIDATED)**
 
 ---
 
@@ -365,16 +365,16 @@ python create_visualizations.py
 
 ## Conclusion
 
-The original model had **3 critical bugs** that made results invalid:
-1. Incorrect target scaling
-2. Wrong predictions used for evaluation
-3. Misleading model comparison
+The original model had **3 critical bugs** that made results INVALID:
+1. Incorrect target scaling (different scales for train/test)
+2. Wrong predictions used for evaluation (all models evaluated with Linear Regression's predictions)
+3. Misleading model comparison (all showed identical scores)
 
 With all improvements:
-- ✅ **92.49% accuracy** (correctly calculated)
-- ✅ Robust cross-validation
+- ✅ **92.49% accuracy** (properly validated with correct scaling and evaluation)
+- ✅ Robust 5-fold cross-validation
 - ✅ Optimized hyperparameters
 - ✅ Professional ML pipeline
 - ✅ Full documentation
 
-The model is now production-ready with proper evaluation, validation, and best practices implemented.
+The model is now production-ready with proper evaluation, validation, and best practices implemented. The original "92%" was based on invalid scaling and couldn't be trusted - the new 92.49% is properly validated and reliable.

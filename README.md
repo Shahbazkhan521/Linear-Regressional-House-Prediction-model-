@@ -1,7 +1,7 @@
 # House Price Prediction - Improved ML Model
 
 ## Overview
-This project implements multiple machine learning models for house price prediction with comprehensive improvements to achieve near 100% accuracy. The models are trained on the USA Housing dataset and include:
+This project implements multiple machine learning models for house price prediction with comprehensive improvements to achieve over 90% validated accuracy. The models are trained on the USA Housing dataset and include:
 - Linear Regression
 - Ridge & Lasso Regression
 - Decision Tree Regressor
